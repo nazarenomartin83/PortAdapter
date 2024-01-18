@@ -6,5 +6,5 @@ public interface IGenericPort <T> {
     T getById(Long id);
     List<T> getAll();
     void deleteById(Long id);
-    T update(T user);
+    T update(T entity);
 }

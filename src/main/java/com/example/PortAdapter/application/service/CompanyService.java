@@ -6,18 +6,16 @@ import com.example.PortAdapter.domain.model.dto.CompanyDTO;
 import com.example.PortAdapter.domain.model.entity.Company;
 import com.example.PortAdapter.domain.model.entity.Customer;
 import com.example.PortAdapter.domain.model.port.ICompanyPort;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.Collections;
 import java.util.List;
-
+@Service
+@AllArgsConstructor
 public class CompanyService implements ICompanyService {
     private final ICompanyPort companyPort;
     private final CompanyDtoMapper companyDtoMapper;
-
-    public CompanyService(ICompanyPort companyPort, CompanyDtoMapper companyDtoMapper) {
-        this.companyPort = companyPort;
-        this.companyDtoMapper = companyDtoMapper;
-    }
 
     @Override
     public CompanyDTO create(CompanyDTO companyDTO) {

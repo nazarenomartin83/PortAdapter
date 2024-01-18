@@ -2,7 +2,9 @@ package com.example.PortAdapter.application.mapper;
 
 import com.example.PortAdapter.domain.model.dto.CompanyDTO;
 import com.example.PortAdapter.domain.model.entity.Company;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CompanyDtoMapper implements IEntityDtoMapper<Company, CompanyDTO> {
     @Override
     public Company dtoToEntity(CompanyDTO dto) {

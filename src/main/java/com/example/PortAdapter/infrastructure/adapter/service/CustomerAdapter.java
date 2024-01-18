@@ -12,7 +12,7 @@ import java.util.List;
 @AllArgsConstructor
 public class CustomerAdapter implements ICustomerPort {
 
-    private final CustomerRepository customerRepository;
+    //private final CustomerRepository customerRepository;
     @Override
     public Customer create(Customer entity) {
         return null;
@@ -30,7 +30,7 @@ public class CustomerAdapter implements ICustomerPort {
 
     }
     @Override
-    public Customer update(Customer user) {
+    public Customer update(Customer entity) {
         return null;
     }
 }

@@ -1,9 +1,10 @@
 package com.example.PortAdapter.infrastructure.adapter.repository;
 
 import com.example.PortAdapter.domain.model.entity.Company;
-import com.example.PortAdapter.domain.model.entity.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface CompanyRepository extends JpaRepository<Company,Long> {
 
 }
