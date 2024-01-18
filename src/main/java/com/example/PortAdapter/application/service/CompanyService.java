@@ -2,15 +2,20 @@ package com.example.PortAdapter.application.service;
 
 import com.example.PortAdapter.application.mapper.CompanyDtoMapper;
 import com.example.PortAdapter.application.usecase.ICompanyService;
-import com.example.PortAdapter.domain.model.dto.CompanyDTO;
-import com.example.PortAdapter.domain.model.entity.Company;
-import com.example.PortAdapter.domain.model.entity.Customer;
-import com.example.PortAdapter.domain.model.port.ICompanyPort;
+import com.example.PortAdapter.domain.dto.CompanyDTO;
+import com.example.PortAdapter.domain.entity.Company;
+import com.example.PortAdapter.domain.port.ICompanyPort;
+import com.example.PortAdapter.infrastructure.handle.CompanyException;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
+
+import static com.example.PortAdapter.domain.constant.GlobalError.COMPANY_EXIST;
+import static com.example.PortAdapter.domain.constant.GlobalError.COMPANY_NOT_FOUND;
+
 @Service
 @AllArgsConstructor
 public class CompanyService implements ICompanyService {
@@ -20,6 +25,9 @@ public class CompanyService implements ICompanyService {
     @Override
     public CompanyDTO create(CompanyDTO companyDTO) {
         // Ejecuta caso de uso.
+        Optional<Company> company = this.companyPort.getById(companyDTO.getId());
+        if (company.isPresent())
+            throw new CompanyException(HttpStatus.CONFLICT,COMPANY_EXIST);
         return companyDtoMapper.entityToDto(this.companyPort.create(companyDtoMapper.dtoToEntity(companyDTO)));
     }
 
@@ -30,7 +38,10 @@ public class CompanyService implements ICompanyService {
 
     @Override
     public CompanyDTO getById(Long id) {
-        return companyDtoMapper.entityToDto(this.companyPort.getById(id));
+        Optional<Company> company = this.companyPort.getById(id);
+        if (company.isEmpty())
+            throw new CompanyException(HttpStatus.CONFLICT,COMPANY_NOT_FOUND);
+        return companyDtoMapper.entityToDto(company.get());
     }
 
     @Override
@@ -40,8 +51,8 @@ public class CompanyService implements ICompanyService {
 
     @Override
     public List<CompanyDTO> getAll() {
-        List <Company> customers = this.companyPort.getAll();
-        return customers
+        List <Company> companies = this.companyPort.getAll();
+        return companies
                 .stream()
                 .map(companyDtoMapper::entityToDto)
                 .toList();

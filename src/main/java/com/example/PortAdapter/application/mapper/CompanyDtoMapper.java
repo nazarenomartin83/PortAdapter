@@ -1,7 +1,7 @@
 package com.example.PortAdapter.application.mapper;
 
-import com.example.PortAdapter.domain.model.dto.CompanyDTO;
-import com.example.PortAdapter.domain.model.entity.Company;
+import com.example.PortAdapter.domain.dto.CompanyDTO;
+import com.example.PortAdapter.domain.entity.Company;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -15,7 +15,10 @@ public class CompanyDtoMapper implements IEntityDtoMapper<Company, CompanyDTO> {
     }
 
     @Override
-    public CompanyDTO entityToDto(Company Entity) {
-        return null;
+    public CompanyDTO entityToDto(Company entity) {
+        return CompanyDTO.builder().id(entity.getId())
+                .name(entity.getName())
+                .address(entity.getAddress())
+                .build();
     }
 }

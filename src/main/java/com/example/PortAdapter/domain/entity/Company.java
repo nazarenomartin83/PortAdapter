@@ -1,8 +1,10 @@
-package com.example.PortAdapter.domain.model.entity;
+package com.example.PortAdapter.domain.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -10,11 +12,10 @@ import lombok.*;
 @Setter
 @Builder
 @Entity
-public class Customer {
+public class Company {
     @Id
     private Long id;
     private String name;
-    private String surname;
-    private String email;
-    //private Company company;
+    private String address;
+    //private List<Customer> customers;
 }

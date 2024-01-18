@@ -1,9 +1,11 @@
-package com.example.PortAdapter.domain.model.port;
+package com.example.PortAdapter.domain.port;
 
 import java.util.List;
+import java.util.Optional;
+
 public interface IGenericPort <T> {
     T create(T entity);
-    T getById(Long id);
+    Optional<T> getById(Long id);
     List<T> getAll();
     void deleteById(Long id);
     T update(T entity);
