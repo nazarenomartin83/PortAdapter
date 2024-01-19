@@ -25,7 +25,7 @@ public class CompanyService implements ICompanyService {
     @Override
     public CompanyDTO create(CompanyDTO companyDTO) {
         // Ejecuta caso de uso.
-        Optional<Company> company = this.companyPort.getById(companyDTO.getId());
+        Optional<Company> company = this.companyPort.getByPK(companyDTO.getName());
         if (company.isPresent())
             throw new CompanyException(HttpStatus.CONFLICT,COMPANY_EXIST);
         return companyDtoMapper.entityToDto(this.companyPort.create(companyDtoMapper.dtoToEntity(companyDTO)));

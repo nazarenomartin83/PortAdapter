@@ -24,6 +24,11 @@ public class CompanyAdapter implements ICompanyPort {
     }
 
     @Override
+    public Optional<Company> getByPK(String pk) {
+        return this.companyRepository.findByName(pk);
+    }
+
+    @Override
     public List<Company> getAll() {
         return this.companyRepository.findAll();
     }

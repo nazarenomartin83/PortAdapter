@@ -12,8 +12,8 @@ public class CompanyDTO {
     private String name;
     private String address;
     @Getter(AccessLevel.NONE)
-    private String value;
-    private String getValue()
+    private String nick;
+    public String getNick()
     {
         return this.name+" / "+this.address;
     }

@@ -22,6 +22,12 @@ public class CustomerAdapter implements ICustomerPort {
     public Optional<Customer> getById(Long id) {
         return null;
     }
+
+    @Override
+    public Optional<Customer> getByPK(String pk) {
+        return Optional.empty();
+    }
+
     @Override
     public List<Customer> getAll() {
         return null;

@@ -13,7 +13,6 @@ public class CompanyDtoMapper implements IEntityDtoMapper<Company, CompanyDTO> {
                 .address(dto.getAddress())
                 .build();
     }
-
     @Override
     public CompanyDTO entityToDto(Company entity) {
         return CompanyDTO.builder().id(entity.getId())
