@@ -17,7 +17,6 @@ public class CompanyController {
     @GetMapping("/{id}")
     public ResponseEntity<CompanyDTO> getById(@PathVariable Long id) {
         return ResponseEntity.ok(companyService.getById(id));
-        //return companyService.getById(id);
     }
 
     @GetMapping
