@@ -23,38 +23,34 @@ public class CompanyService implements ICompanyService {
     private final CompanyDtoMapper companyDtoMapper;
 
     @Override
-    public CompanyDTO create(CompanyDTO companyDTO) {
+    public Company create(Company entity) {
         // Ejecuta caso de uso.
-        Optional<Company> company = this.companyPort.getByPK(companyDTO.getName());
+        Optional<Company> company = this.companyPort.getByPK(entity.getName());
         if (company.isPresent())
             throw new CompanyException(HttpStatus.CONFLICT,COMPANY_EXIST);
-        return companyDtoMapper.entityToDto(this.companyPort.create(companyDtoMapper.dtoToEntity(companyDTO)));
+        return this.companyPort.create(entity);
     }
 
     @Override
-    public CompanyDTO update(CompanyDTO companyDTO) {
+    public Company update(Company entity) {
         return null;
     }
 
     @Override
-    public CompanyDTO getById(Long id) {
+    public Company getById(Long id) {
         Optional<Company> company = this.companyPort.getById(id);
         if (company.isEmpty())
             throw new CompanyException(HttpStatus.CONFLICT,COMPANY_NOT_FOUND);
-        return companyDtoMapper.entityToDto(company.get());
+        return company.get();
     }
 
     @Override
-    public CompanyDTO delete(Long id) {
+    public Company delete(Long id) {
         return null;
     }
 
     @Override
-    public List<CompanyDTO> getAll() {
-        List <Company> companies = this.companyPort.getAll();
-        return companies
-                .stream()
-                .map(companyDtoMapper::entityToDto)
-                .toList();
+    public List<Company> getAll() {
+        return this.companyPort.getAll();
     }
 }
