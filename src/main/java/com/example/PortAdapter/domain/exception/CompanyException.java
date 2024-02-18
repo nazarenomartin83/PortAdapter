@@ -1,4 +1,4 @@
-package com.example.PortAdapter.infrastructure.handle;
+package com.example.PortAdapter.domain.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

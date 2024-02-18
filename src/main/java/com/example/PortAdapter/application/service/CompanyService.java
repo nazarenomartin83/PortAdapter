@@ -4,7 +4,7 @@ import com.example.PortAdapter.infrastructure.adapter.dto.mapper.CompanyDtoMappe
 import com.example.PortAdapter.application.usecase.ICompanyService;
 import com.example.PortAdapter.domain.entity.Company;
 import com.example.PortAdapter.domain.port.ICompanyPort;
-import com.example.PortAdapter.infrastructure.handle.CompanyException;
+import com.example.PortAdapter.domain.exception.CompanyException;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;

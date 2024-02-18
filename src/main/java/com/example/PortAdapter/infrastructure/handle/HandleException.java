@@ -1,5 +1,6 @@
 package com.example.PortAdapter.infrastructure.handle;
 
+import com.example.PortAdapter.domain.exception.CompanyException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
