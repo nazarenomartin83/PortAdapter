@@ -1,8 +1,8 @@
 package com.example.PortAdapter.infrastructure.controller;
 
-import com.example.PortAdapter.application.mapper.CompanyDtoMapper;
+import com.example.PortAdapter.infrastructure.adapter.dto.mapper.CompanyDtoMapper;
 import com.example.PortAdapter.application.usecase.ICompanyService;
-import com.example.PortAdapter.domain.dto.CompanyDTO;
+import com.example.PortAdapter.infrastructure.adapter.dto.CompanyDTO;
 import com.example.PortAdapter.domain.entity.Company;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/company")
+@RequestMapping("/companies")
 @AllArgsConstructor
 public class CompanyController {
     private final ICompanyService companyService;

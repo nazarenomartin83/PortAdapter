@@ -1,6 +1,6 @@
-package com.example.PortAdapter.application.mapper;
+package com.example.PortAdapter.infrastructure.adapter.dto.mapper;
 
-import com.example.PortAdapter.domain.dto.CustomerDTO;
+import com.example.PortAdapter.infrastructure.adapter.dto.CustomerDTO;
 import com.example.PortAdapter.domain.entity.Customer;
 import org.springframework.stereotype.Service;
 

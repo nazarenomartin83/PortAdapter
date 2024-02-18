@@ -1,8 +1,7 @@
 package com.example.PortAdapter.application.service;
 
-import com.example.PortAdapter.application.mapper.CompanyDtoMapper;
+import com.example.PortAdapter.infrastructure.adapter.dto.mapper.CompanyDtoMapper;
 import com.example.PortAdapter.application.usecase.ICompanyService;
-import com.example.PortAdapter.domain.dto.CompanyDTO;
 import com.example.PortAdapter.domain.entity.Company;
 import com.example.PortAdapter.domain.port.ICompanyPort;
 import com.example.PortAdapter.infrastructure.handle.CompanyException;
@@ -28,6 +27,7 @@ public class CompanyService implements ICompanyService {
         Optional<Company> company = this.companyPort.getByPK(entity.getName());
         if (company.isPresent())
             throw new CompanyException(HttpStatus.CONFLICT,COMPANY_EXIST);
+        entity.setCreateTime();
         return this.companyPort.create(entity);
     }
 

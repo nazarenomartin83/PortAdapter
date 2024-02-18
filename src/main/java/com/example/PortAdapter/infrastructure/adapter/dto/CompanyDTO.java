@@ -1,4 +1,4 @@
-package com.example.PortAdapter.domain.dto;
+package com.example.PortAdapter.infrastructure.adapter.dto;
 
 import jakarta.persistence.Id;
 import lombok.*;

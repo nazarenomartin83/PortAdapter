@@ -1,6 +1,6 @@
 package com.example.PortAdapter.infrastructure.configuration;
 
-import com.example.PortAdapter.application.mapper.CompanyDtoMapper;
+import com.example.PortAdapter.infrastructure.adapter.dto.mapper.CompanyDtoMapper;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

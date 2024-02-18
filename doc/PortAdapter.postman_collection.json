@@ -26,7 +26,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8080/company/1",
+					"raw": "http://localhost:8080/companies/1",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -60,7 +60,7 @@
 					]
 				},
 				"url": {
-					"raw": "http://localhost:8080/company",
+					"raw": "http://localhost:8080/companies",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -88,7 +88,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:8080/company",
+					"raw": "http://localhost:8080/companies",
 					"protocol": "http",
 					"host": [
 						"localhost"

@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.*;
 
+import java.time.Instant;
 import java.util.List;
 
 @AllArgsConstructor
@@ -13,11 +14,14 @@ import java.util.List;
 @Getter
 @Setter
 @Builder
-@Entity
 public class Company {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
     private String address;
+    private Instant createTime;
+
+    public void setCreateTime()
+    {
+        this.createTime = Instant.now();
+    }
 }
